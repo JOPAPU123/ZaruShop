@@ -7,27 +7,46 @@
   <meta name="description" content="ZaruShop — продажа макросов и утилит. Оплата через FunPay. Telegram: @Neprikosnovenin" />
   <style>
     :root{--maxw:980px}
-    body{font-family:Inter,Arial,Helvetica,sans-serif;margin:0;padding:0;color:#111;background:#fafafa}
-    header{background:#0b1220;color:#fff;padding:28px 0}
-    .container{max-width:var(--maxw);margin:0 auto;padding:0 16px}
+    html, body{
+      margin:0;
+      padding:0;
+      height:100%;
+      background:#000; /* чёрный фон */
+      overflow-x:hidden;
+      font-family:Inter,Arial,Helvetica,sans-serif;
+      color:white;
+    }
+    header{background:rgba(11,18,32,0.9);color:#fff;padding:28px 0;position:relative;z-index:2}
+    .container{max-width:var(--maxw);margin:0 auto;padding:0 16px;position:relative;z-index:2}
     h1{margin:0;font-size:28px}
     .tagline{opacity:.9;margin-top:6px}
     nav{margin-top:12px}
     nav a{color:#bfe1ff;margin-right:12px;text-decoration:none;font-size:14px}
-    main{padding:28px 0}
+    main{padding:28px 0;position:relative;z-index:2}
     .grid{display:grid;grid-template-columns:1fr;gap:14px}
-    .card{background:#fff;border:1px solid #e6e6e6;padding:16px;border-radius:10px;box-shadow:0 6px 20px rgba(12,12,12,0.03)}
+    .card{background:rgba(255,255,255,0.05);border:1px solid #444;padding:16px;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,0.3)}
     .price{font-weight:700}
-    .btn{display:inline-block;padding:8px 12px;border-radius:8px;text-decoration:none;border:1px solid #0b1220;background:transparent}
-    .primary{background:#0b1220;color:#fff;border-color:#0b1220}
-    footer{font-size:13px;color:#666;margin:30px 0 60px}
-    pre.disclaimer{white-space:pre-wrap;background:#fff5f5;border:1px solid #ffd6d6;padding:12px;border-radius:8px;color:#500}
+    .btn{display:inline-block;padding:8px 12px;border-radius:8px;text-decoration:none;border:1px solid #0b1220;background:#0b1220;color:#fff}
+    footer{font-size:13px;color:#ccc;margin:30px 0 60px;position:relative;z-index:2}
+    pre.disclaimer{white-space:pre-wrap;background:#111;padding:12px;border-radius:8px;color:#f88;border:1px solid #f44}
     .product-list{display:flex;flex-direction:column;gap:12px}
-    .meta{font-size:13px;color:#666;margin-top:6px}
+    .meta{font-size:13px;color:#bbb;margin-top:6px}
     @media(min-width:800px){ .grid{grid-template-columns:2fr 1fr} }
+    canvas#snow{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      z-index:1;
+      pointer-events:none;
+    }
   </style>
 </head>
 <body>
+  <!-- Снег -->
+  <canvas id="snow"></canvas>
+
   <header>
     <div class="container">
       <h1>ZaruShop</h1>
@@ -63,7 +82,7 @@
           </article>
         </div>
 
-        <hr style="margin:16px 0;border:none;border-top:1px solid #eee" />
+        <hr style="margin:16px 0;border:none;border-top:1px solid #555" />
 
         <h3 id="manual">Мануал / Документация (общий)</h3>
         <p>Здесь размещены общие шаги по заказу, установке и получению поддержки. Точные инструкции к каждому товару публикуются в описании товара на FunPay и/или отправляются по e-mail после покупки.</p>
@@ -107,5 +126,63 @@
       </div>
     </footer>
   </main>
+
+  <!-- JS для падающего снега -->
+  <script>
+    const canvas = document.getElementById('snow');
+    const ctx = canvas.getContext('2d');
+    let width = window.innerWidth;
+    let height = window.innerHeight;
+    canvas.width = width;
+    canvas.height = height;
+
+    const flakes = [];
+    function createFlakes(){
+      for(let i=0;i<150;i++){
+        flakes.push({x:Math.random()*width,y:Math.random()*height,r:Math.random()*3+1,d:Math.random()+1});
+      }
+    }
+
+    function drawFlakes(){
+      ctx.clearRect(0,0,width,height);
+      ctx.fillStyle="white";
+      ctx.beginPath();
+      for(let i=0;i<flakes.length;i++){
+        const f=flakes[i];
+        ctx.moveTo(f.x,f.y);
+        ctx.arc(f.x,f.y,f.r,0,Math.PI*2,true);
+      }
+      ctx.fill();
+      moveFlakes();
+    }
+
+    let angle=0;
+    function moveFlakes(){
+      angle+=0.01;
+      for(let i=0;i<flakes.length;i++){
+        const f=flakes[i];
+        f.y+=Math.pow(f.d,2)+1;
+        f.x+=Math.sin(angle)*2;
+        if(f.y>height){
+          flakes[i]={x:Math.random()*width,y:0,r:f.r,d:f.d};
+        }
+      }
+    }
+
+    function update(){
+      drawFlakes();
+      requestAnimationFrame(update);
+    }
+
+    window.addEventListener("resize",()=>{
+      width=window.innerWidth;
+      height=window.innerHeight;
+      canvas.width=width;
+      canvas.height=height;
+    });
+
+    createFlakes();
+    update();
+  </script>
 </body>
 </html>
