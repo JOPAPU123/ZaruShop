@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="ru">
 <head>
@@ -7,32 +6,44 @@
   <title>ZaruShop — магазин макросов, скриптов и сайтов</title>
   <meta name="description" content="ZaruShop — продажа макросов, скриптов, ботов и создание сайтов. Оплата через FunPay. Telegram: @Neprikosnovenin" />
   <style>
-    :root{--maxw:980px}
+    :root{--maxw:700px} /* сжатый сайт */
     html, body{
       margin:0;
       padding:0;
       height:100%;
-      background:#000; /* чёрный фон */
+      background:#000;
       overflow-x:hidden;
       font-family:Inter,Arial,Helvetica,sans-serif;
       color:white;
     }
-    header{background:rgba(11,18,32,0.9);color:#fff;padding:28px 0;position:relative;z-index:2}
-    .container{max-width:var(--maxw);margin:0 auto;padding:0 16px;position:relative;z-index:2}
-    h1{margin:0;font-size:28px}
-    .tagline{opacity:.9;margin-top:6px}
-    nav{margin-top:12px}
-    nav a{color:#bfe1ff;margin-right:12px;text-decoration:none;font-size:14px}
-    main{padding:28px 0;position:relative;z-index:2}
-    .grid{display:grid;grid-template-columns:1fr;gap:14px}
-    .card{background:rgba(255,255,255,0.05);border:1px solid #444;padding:16px;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,0.3)}
+    header{
+      background:rgba(11,18,32,0.9);
+      color:#fff;
+      padding:20px 0;
+      position:relative;
+      z-index:2
+    }
+    .container{
+      max-width:var(--maxw);
+      margin:0 auto;
+      padding:0 12px;
+      position:relative;
+      z-index:2;
+    }
+    h1{margin:0;font-size:24px}
+    .tagline{opacity:.9;margin-top:4px;font-size:14px}
+    nav{margin-top:10px}
+    nav a{color:#bfe1ff;margin-right:10px;text-decoration:none;font-size:13px}
+    main{padding:20px 0;position:relative;z-index:2}
+    .grid{display:grid;grid-template-columns:1fr;gap:12px}
+    .card{background:rgba(255,255,255,0.05);border:1px solid #444;padding:12px;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.3)}
     .price{font-weight:700}
-    .btn{display:inline-block;padding:8px 12px;border-radius:8px;text-decoration:none;border:1px solid #0b1220;background:#0b1220;color:#fff}
-    footer{font-size:13px;color:#ccc;margin:30px 0 60px;position:relative;z-index:2}
-    pre.disclaimer{white-space:pre-wrap;background:#111;padding:12px;border-radius:8px;color:#f88;border:1px solid #f44}
-    .product-list{display:flex;flex-direction:column;gap:12px}
-    .meta{font-size:13px;color:#bbb;margin-top:6px}
-    @media(min-width:800px){ .grid{grid-template-columns:2fr 1fr} }
+    .btn{display:inline-block;padding:6px 10px;border-radius:6px;text-decoration:none;border:1px solid #0b1220;background:#0b1220;color:#fff;font-size:14px}
+    footer{font-size:12px;color:#ccc;margin:20px 0 40px;position:relative;z-index:2}
+    pre.disclaimer{white-space:pre-wrap;background:#111;padding:10px;border-radius:6px;color:#f88;border:1px solid #f44;font-size:14px}
+    .product-list{display:flex;flex-direction:column;gap:10px}
+    .meta{font-size:12px;color:#bbb;margin-top:4px}
+    @media(min-width:800px){ .grid{grid-template-columns:1fr} }
     canvas#snow{
       position:fixed;
       top:0;
@@ -47,26 +58,26 @@
       background:#ff4444;
       color:#fff;
       border:3px solid #ff0000;
-      padding:20px;
-      border-radius:12px;
+      padding:16px;
+      border-radius:10px;
       font-weight:bold;
-      font-size:16px;
-      margin-top:20px;
+      font-size:15px;
+      margin-top:16px;
     }
     .agreement pre{
       background:#660000;
       color:#fff;
-      padding:12px;
-      border-radius:8px;
-      font-size:15px;
+      padding:10px;
+      border-radius:6px;
+      font-size:14px;
       overflow-x:auto;
     }
     /* Выделение готовности к сотрудничеству */
     .highlight{
       color:#ffff00;
       font-weight:bold;
-      font-size:16px;
-      margin-top:6px;
+      font-size:15px;
+      margin-top:4px;
     }
   </style>
 </head>
@@ -129,16 +140,14 @@
             <h3>Соглашение покупателя</h3>
             <p>После покупки товара на FunPay вы должны написать в чат продавцу:</p>
             <pre>
-«Я, [ваш ник на FunPay], подтверждаю, что после покупки товара/скрипта/бота я беру на себя полную ответственность за его использование.
-Любые последствия, включая блокировки аккаунта, потерю данных или несовместимость, являются моей личной проблемой.
-Я не имею никаких претензий к ZaruShop или продавцу.»
+«Я, [ваш ник на FunPay], подтверждаю, что после покупки товара/скрипта/бота я беру на себя полную ответственность за его использование. Любые последствия, включая блокировки аккаунта, потерю данных или несовместимость, являются моей личной проблемой. Я не имею никаких претензий к ZaruShop или продавцу.»
             </pre>
             <p class="highlight">💡 Я подтверждаю, что ZaruShop готов сотрудничать со всеми приложениями, скриптами и проектами.</p>
             <p class="meta">Обязательно отправьте это сообщение в чат после покупки, чтобы подтвердить согласие с правилами.</p>
           </article>
         </div>
 
-        <hr style="margin:16px 0;border:none;border-top:1px solid #555" />
+        <hr style="margin:12px 0;border:none;border-top:1px solid #555" />
 
         <h3 id="manual">Мануал / Документация</h3>
         <p>Общие шаги по заказу, установке и получению поддержки. Подробности отправляются после покупки или согласования через Telegram.</p>
@@ -171,7 +180,7 @@
       </aside>
     </div>
 
-    <footer style="margin-top:22px">
+    <footer style="margin-top:18px">
       <div class="card">
         <strong>Примечание по безопасности</strong>
         <p class="meta">Проверяйте правила FunPay и сторонних платформ. Некоторые платформы запрещают использование читов/макросов. Покупатель и продавец несут ответственность за соблюдение правил.</p>
@@ -239,6 +248,3 @@
   </script>
 </body>
 </html>
-
-
-
