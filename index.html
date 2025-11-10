@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ZaruShop — магазин макросов и приложений</title>
+  <meta name="description" content="ZaruShop — продажа макросов и утилит. Оплата через FunPay. Telegram: @Neprikosnovenin" />
+  <style>
+    :root{--maxw:980px}
+    body{font-family:Inter,Arial,Helvetica,sans-serif;margin:0;padding:0;color:#111;background:#fafafa}
+    header{background:#0b1220;color:#fff;padding:28px 0}
+    .container{max-width:var(--maxw);margin:0 auto;padding:0 16px}
+    h1{margin:0;font-size:28px}
+    .tagline{opacity:.9;margin-top:6px}
+    nav{margin-top:12px}
+    nav a{color:#bfe1ff;margin-right:12px;text-decoration:none;font-size:14px}
+    main{padding:28px 0}
+    .grid{display:grid;grid-template-columns:1fr;gap:14px}
+    .card{background:#fff;border:1px solid #e6e6e6;padding:16px;border-radius:10px;box-shadow:0 6px 20px rgba(12,12,12,0.03)}
+    .price{font-weight:700}
+    .btn{display:inline-block;padding:8px 12px;border-radius:8px;text-decoration:none;border:1px solid #0b1220;background:transparent}
+    .primary{background:#0b1220;color:#fff;border-color:#0b1220}
+    footer{font-size:13px;color:#666;margin:30px 0 60px}
+    pre.disclaimer{white-space:pre-wrap;background:#fff5f5;border:1px solid #ffd6d6;padding:12px;border-radius:8px;color:#500}
+    .product-list{display:flex;flex-direction:column;gap:12px}
+    .meta{font-size:13px;color:#666;margin-top:6px}
+    @media(min-width:800px){ .grid{grid-template-columns:2fr 1fr} }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>ZaruShop</h1>
+      <div class="tagline">Макросы и утилиты — покупай безопасно через FunPay. Контакты: Telegram @Neprikosnovenin</div>
+      <nav>
+        <a href="#catalog">Каталог</a>
+        <a href="#manual">Мануал</a>
+        <a href="#how-to-buy">Как купить</a>
+        <a href="#disclaimer">Disclaimer</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="grid">
+      <section class="card">
+        <h2 id="catalog">Каталог товаров</h2>
+
+        <div class="product-list" aria-live="polite">
+          <article>
+            <h3>macros RUST — цена на FunPay</h3>
+            <p>Автоматизация действий в Rust (макросы). Поддержка Windows. Лицензия персональная. Совместимость и технические требования указаны в описании товара на FunPay.</p>
+            <p class="meta">Продавец и оплата — через FunPay: <a href="https://funpay.com/users/15096779/" target="_blank" rel="noopener">страница продавца на FunPay</a>.</p>
+            <p><a class="btn" href="https://funpay.com/users/15096779/" target="_blank" rel="noopener">Перейти на FunPay</a></p>
+          </article>
+
+          <article>
+            <h3>чит Hitbox+ (GTA5 Online / RAGEMP) — цена на FunPay</h3>
+            <p>Чит-модуль Hitbox+ для GTA5 Online / RAGEMP. Условия использования и ограничения — на странице товара. Продавец не несёт ответственности за нарушение правил игр/площадок.</p>
+            <p class="meta">Оплата и покупки — через FunPay: <a href="https://funpay.com/users/15096779/" target="_blank" rel="noopener">ссылка на профиль</a>.</p>
+            <p><a class="btn" href="https://funpay.com/users/15096779/" target="_blank" rel="noopener">Купить на FunPay</a></p>
+          </article>
+        </div>
+
+        <hr style="margin:16px 0;border:none;border-top:1px solid #eee" />
+
+        <h3 id="manual">Мануал / Документация (общий)</h3>
+        <p>Здесь размещены общие шаги по заказу, установке и получению поддержки. Точные инструкции к каждому товару публикуются в описании товара на FunPay и/или отправляются по e-mail после покупки.</p>
+
+        <h4>Общие шаги установки (пример)</h4>
+        <ol>
+          <li>Скачайте архив с ссылке, которую мы пришлем после подтверждения оплаты.</li>
+          <li>Распакуйте в отдельную папку, отключите антивирус на время распаковки (при необходимости) — действуйте с осторожностью.</li>
+          <li>Следуйте README в архиве: запуск, регистрация лицензии, активация.</li>
+        </ol>
+
+        <h4>Поддержка</h4>
+        <p>Поддержка через Telegram: <strong>@Neprikosnovenin</strong>. В сообщении указывайте ник в FunPay и номер заказа/скрин оплаты.</p>
+      </section>
+
+      <aside class="card">
+        <h3 id="how-to-buy">Как купить — быстрые шаги</h3>
+        <ol>
+          <li>Перейдите на профиль продавца на FunPay: <a href="https://funpay.com/users/15096779/" target="_blank" rel="noopener">https://funpay.com/users/15096779/</a>.</li>
+          <li>Выберите товар и оформите покупку через FunPay (там же указаны цены и способы оплаты).</li>
+          <li>После оплаты пришлите скрин в Telegram <strong>@Neprikosnovenin</strong> или ответьте через систему сообщений FunPay.</li>
+          <li>Мы проверяем оплату и отправляем ссылку для скачивания + инструкцию.</li>
+        </ol>
+
+        <h4 id="disclaimer">Отказ от ответственности</h4>
+        <pre class="disclaimer">
+Программное обеспечение предоставляется «как есть». Продавец не несёт ответственности за последствия использования ПО, включая блокировки аккаунтов, нарушение правил сторонних сервисов или потерю данных. Пользователь использует ПО на свой страх и риск.
+        </pre>
+
+        <h4 id="contacts">Контакты</h4>
+        <p>Telegram: <a href="https://t.me/Neprikosnovenin" target="_blank" rel="noopener">@Neprikosnovenin</a></p>
+        <p>FunPay: <a href="https://funpay.com/users/15096779/" target="_blank" rel="noopener">страница продавца</a></p>
+      </aside>
+    </div>
+
+    <footer style="margin-top:22px">
+      <div class="card">
+        <strong>Примечание по праву и безопасности</strong>
+        <p class="meta">Проверь правила FunPay и правила платформ (игры, серверы). Некоторые платформы запрещают использование читов/макросов — продавец и покупатель должны учитывать риски.</p>
+        <p>© ZaruShop — все права защищены</p>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
