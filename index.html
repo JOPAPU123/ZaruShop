@@ -4,67 +4,238 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>ZaruShop — магазин макросов, скриптов и сайтов</title>
-  <meta name="description" content="ZaruShop — продажа макросов, скриптов, ботов и создание сайтов. Оплата через FunPay. Telegram: @Neprikosnovenin" />
+  <meta name="description" content="ZaruShop — продажа макросов, скриптов, ботов и создание сайтов. Оплата через FunPay. Telegram: @Neprikosnovenin">
   <style>
-    :root{--maxw:980px}
+    :root{
+      --maxw:980px;
+      --main-gradient: linear-gradient(120deg, #23272e 0%, #4e54c8 100%);
+      --card-bg: rgba(35,40,53,0.86);
+      --accent: #8bb8ff;
+      --accent2: #ff79c6;
+      --btn-bg: linear-gradient(90deg,#3f51b5,#6e8cff);
+      --btn-shadow: 0 2px 12px 0 #2b3750a0;
+      --card-shadow:0 7px 32px 0 #0808284A;
+    }
     html, body{
       margin:0;
       padding:0;
       height:100%;
-      background:#000; /* чёрный фон */
+      background: var(--main-gradient);
       overflow-x:hidden;
-      font-family:Inter,Arial,Helvetica,sans-serif;
+      font-family: 'Inter', Arial, Helvetica, sans-serif;
       color:white;
+      min-height:100vh;
+      scroll-behavior: smooth;
     }
-    header{background:rgba(11,18,32,0.9);color:#fff;padding:28px 0;position:relative;z-index:2}
-    .container{max-width:var(--maxw);margin:0 auto;padding:0 16px;position:relative;z-index:2}
-    h1{margin:0;font-size:28px}
-    .tagline{opacity:.9;margin-top:6px}
-    nav{margin-top:12px}
-    nav a{color:#bfe1ff;margin-right:12px;text-decoration:none;font-size:14px}
-    main{padding:28px 0;position:relative;z-index:2}
-    .grid{display:grid;grid-template-columns:1fr;gap:14px}
-    .card{background:rgba(255,255,255,0.05);border:1px solid #444;padding:16px;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,0.3)}
-    .price{font-weight:700}
-    .btn{display:inline-block;padding:8px 12px;border-radius:8px;text-decoration:none;border:1px solid #0b1220;background:#0b1220;color:#fff}
-    footer{font-size:13px;color:#ccc;margin:30px 0 60px;position:relative;z-index:2}
-    pre.disclaimer{white-space:pre-wrap;background:#111;padding:12px;border-radius:8px;color:#f88;border:1px solid #f44}
-    .product-list{display:flex;flex-direction:column;gap:12px}
-    .meta{font-size:13px;color:#bbb;margin-top:6px}
-    @media(min-width:800px){ .grid{grid-template-columns:2fr 1fr} }
+    header{
+      background:rgba(24,26,38,0.9);
+      color:#fff;
+      padding:32px 0 28px 0;
+      position:relative;
+      z-index:2;
+      box-shadow:0 2px 24px 0 #5551b511;
+      border-bottom: 1px solid #384986;
+    }
+    .container{
+      max-width:var(--maxw);
+      margin:0 auto;
+      padding:0 16px;
+      position:relative;
+      z-index:2;
+    }
+    h1{
+      margin:0;
+      font-size:38px;
+      color:var(--accent);
+      letter-spacing:0.5px;
+      text-shadow:1px 2px 18px #4e54c822;
+      font-weight:800;
+    }
+    .tagline{
+      opacity:.93;
+      margin-top:6px;
+      font-size:19px;
+      color:#f7eaff;
+      font-style:italic;
+      text-shadow: 0 1px 8px #0001;
+    }
+    nav{
+      margin-top:18px;
+    }
+    nav a{
+      color:var(--accent2);
+      margin-right:16px;
+      text-decoration:none;
+      font-size:16px;
+      letter-spacing:0.1em;
+      padding:4px 10px 6px 10px;
+      border-radius:8px;
+      position:relative;
+      transition:background .23s,color .18s;
+    }
+    nav a:hover{
+      background:var(--accent2);
+      color:#fff;
+      box-shadow:0 2px 18px #ff79c677;
+    }
+    main{
+      padding:38px 0 0 0;
+      position:relative;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:22px;
+    }
+    .card{
+      background:var(--card-bg);
+      border:1.5px solid #384986;
+      padding:22px 20px 20px 20px;
+      border-radius:18px;
+      box-shadow:var(--card-shadow);
+      transition:transform .23s, box-shadow .23s;
+      position:relative;
+      overflow: hidden;
+    }
+    .card:hover{
+      transform:translateY(-8px) scale(1.022);
+      box-shadow:0 12px 42px 0 #4956e0b0;
+      border-color:#6e8cff;
+    }
+    .price{
+      font-weight:700;
+      color:var(--accent2);
+    }
+    .btn{
+      display:inline-block;
+      padding:8px 18px 9px 18px;
+      border-radius:18px;
+      text-decoration:none;
+      border:none;
+      background: var(--btn-bg);
+      color:#fff;
+      font-weight:700;
+      font-size:15px;
+      margin-top:3px;
+      box-shadow: var(--btn-shadow);
+      transition:filter .18s, box-shadow .23s,transform .10s;
+      cursor:pointer;
+      outline:none;
+    }
+    .btn:hover{
+      filter:brightness(1.15) saturate(1.2);
+      box-shadow: 0 3px 18px #81a5ffe0;
+      transform:scale(1.05);
+    }
+    footer{
+      font-size:13px;
+      color:#ccc;
+      margin:32px 0 62px 0;
+      position:relative;
+      z-index:2;
+    }
+    pre.disclaimer{
+      white-space:pre-wrap;
+      background:#20133a;
+      padding:14px;
+      border-radius:8px;
+      color:#ffcfdb;
+      border:1px solid #c01a5585;
+      box-shadow:0 2px 15px #FF79C633;
+      font-size:15px;
+    }
+    .product-list{
+      display:flex;
+      flex-direction:column;
+      gap:17px;
+    }
+    .meta{
+      font-size:14px;
+      color:#b2d6ff;
+      margin-top:7px;
+    }
+    @media(min-width:800px){
+      .grid{grid-template-columns:2fr 1fr;}
+      main{padding-top:44px;}
+    }
+    /* Smooth section dividers for fun */
+    .card:not(:last-child){
+      border-bottom:2px dashed #4956e04a;
+    }
     canvas#snow{
       position:fixed;
       top:0;
       left:0;
-      width:100%;
-      height:100%;
+      width:100vw;
+      height:100vh;
       z-index:1;
       pointer-events:none;
     }
     /* Стили для соглашения */
     .agreement{
-      background:#ff4444;
+      background: linear-gradient(110deg, #ed6ea0b7, #ec8c69e0);
       color:#fff;
-      border:3px solid #ff0000;
-      padding:20px;
-      border-radius:12px;
+      border:3px solid #ff79c6e8;
+      padding:22px;
+      border-radius:15px;
       font-weight:bold;
-      font-size:16px;
+      font-size:18px;
       margin-top:20px;
+      box-shadow: 0 2px 30px #ed6ea055;
+      position:relative;
     }
     .agreement pre{
-      background:#660000;
+      background:#660040f7;
       color:#fff;
-      padding:12px;
-      border-radius:8px;
-      font-size:15px;
+      padding:11px 14px;
+      border-radius:9px;
+      font-size:16px;
       overflow-x:auto;
+      margin-top:2px;
+    }
+    /* "Pop" animation on card hover for agreement */
+    .agreement:hover {
+      transform: scale(1.023) rotate(-1deg);
+      box-shadow: 0 6px 32px 0 #ff79c666,0 1.5px 25px #ec8c69a8;
+      border-color:#ff54a6;
+    }
+    /* Footer card specific */
+    footer .card{
+      background:linear-gradient(90deg, #35335a 15%, #8bb8ff09 100%);
+      color:#ffe7fd;
+      border:1.5px solid #5e4a9d;
+      box-shadow:0 2px 20px #305fff40;
+      margin-bottom:0;
+      margin-top:16px;
+      font-size: 15px;
+      border-radius: 16px;
+      padding:20px 15px 15px 18px;
+    }
+    /* Мягкий след за мышкой */
+    .cursor-trail-dot{
+      position:fixed;
+      pointer-events:none;
+      border-radius:50%;
+      width:22px;
+      height:22px;
+      background: radial-gradient(circle, #fff 0%, #8bb8ff99 80%, #ff79c633 100%);
+      mix-blend-mode: lighten;
+      opacity:0.45;
+      transform: translate(-50%,-50%) scale(1);
+      animation: trailFade 0.22s ease-in;
+      z-index:9999;
+      will-change: opacity, transform;
+    }
+    @keyframes trailFade{
+      from{ opacity:0.6; transform:translate(-50%,-50%) scale(1);}
+      to{ opacity:0; transform:translate(-50%,-50%) scale(0.6);}
     }
   </style>
 </head>
 <body>
   <!-- Снег -->
   <canvas id="snow"></canvas>
+  <!-- JS след за мышкой вставляется ниже -->
 
   <header>
     <div class="container">
@@ -84,7 +255,6 @@
     <div class="grid">
       <section class="card">
         <h2 id="catalog">Каталог услуг</h2>
-
         <div class="product-list" aria-live="polite">
           <article>
             <h3>macros RUST — цена на FunPay</h3>
@@ -92,43 +262,38 @@
             <p class="meta">Продавец и оплата — через FunPay: <a href="https://funpay.com/users/15096779/" target="_blank" rel="noopener">страница продавца</a></p>
             <p><a class="btn" href="https://funpay.com/users/15096779/" target="_blank" rel="noopener">Перейти на FunPay</a></p>
           </article>
-
           <article>
             <h3>чит Hitbox+ (GTA5 Online / RAGEMP)</h3>
             <p>Чит-модуль Hitbox+ для GTA5 Online / RAGEMP. Продавец не несёт ответственности за нарушение правил игр/площадок.</p>
             <p class="meta">Оплата через FunPay: <a href="https://funpay.com/users/15096779/" target="_blank" rel="noopener">ссылка на профиль</a></p>
             <p><a class="btn" href="https://funpay.com/users/15096779/" target="_blank" rel="noopener">Купить на FunPay</a></p>
           </article>
-
           <article>
             <h3>Custom Bots & Scripts</h3>
-            <p>Разработка ботов под любые приложения и роботы, написание скриптов. Готов к сотрудничеству с любыми приложениями и скриптами.</p>
+            <p>Разработка ботов под любые приложения и роботы, написание скриптов. Готов к сотрудничеству с любыми задачами.</p>
             <p class="meta">Связь через Telegram: <a href="https://t.me/Neprikosnovenin" target="_blank" rel="noopener">@Neprikosnovenin</a></p>
             <p><a class="btn" href="https://t.me/Neprikosnovenin" target="_blank" rel="noopener">Связаться в Telegram</a></p>
           </article>
-
           <article>
             <h3>Создание сайтов под любой вкус</h3>
-            <p>Разработка сайтов на заказ — от простых лендингов до сложных проектов. Дизайн и функционал под любые требования клиента.</p>
+            <p>Разработка сайтов на заказ — от простых лендингов до сложных проектов. Дизайн и функционал под любые запросы.</p>
             <p class="meta">Связь через Telegram: <a href="https://t.me/Neprikosnovenin" target="_blank" rel="noopener">@Neprikosnovenin</a></p>
             <p><a class="btn" href="https://t.me/Neprikosnovenin" target="_blank" rel="noopener">Связаться в Telegram</a></p>
           </article>
-
           <!-- Соглашение покупателя -->
           <article class="agreement">
             <h3>Соглашение покупателя</h3>
             <p>После покупки товара на FunPay вы должны написать в чат продавцу:</p>
             <pre>
-«Я, [ваш ник на FunPay], подтверждаю, что после покупки товара/скрипта/бота я беру на себя полную ответственность за его использование. Любые последствия, включая блокировки аккаунта, потерю данных или несовместимость, являются моей личной проблемой. Я не имею никаких претензий к ZaruShop или продавцу.»
+«Я, [ваш ник на FunPay], подтверждаю, что после покупки товара/скрипта/бота я беру на себя полную ответственность
+за его использование. Претензий к продавцу по поводу возможных последствий использования не имею».
             </pre>
             <p class="meta">Обязательно отправьте это сообщение в чат после покупки, чтобы подтвердить согласие с правилами.</p>
           </article>
         </div>
-
-        <hr style="margin:16px 0;border:none;border-top:1px solid #555" />
-
+        <hr style="margin:18px 0 16px 0;border:none;border-top:1.2px solid #44569b" />
         <h3 id="manual">Мануал / Документация</h3>
-        <p>Общие шаги по заказу, установке и получению поддержки. Подробности отправляются после покупки или согласования через Telegram.</p>
+        <p>Общие шаги по заказу, установке и получению поддержки. Подробности отправляются после покупки или согласования.</p>
         <h4>Общие шаги</h4>
         <ol>
           <li>Оформите заказ через FunPay или свяжитесь в Telegram.</li>
@@ -138,7 +303,6 @@
         <h4>Поддержка</h4>
         <p>Telegram: <strong>@Neprikosnovenin</strong>. Указывайте ник и номер заказа или ссылку на оплату.</p>
       </section>
-
       <aside class="card">
         <h3 id="how-to-buy">Как купить</h3>
         <ol>
@@ -146,27 +310,23 @@
           <li>Выберите товар и оформите покупку или свяжитесь в Telegram для индивидуального заказа.</li>
           <li>После оплаты присылайте подтверждение в Telegram.</li>
         </ol>
-
         <h4 id="disclaimer">Отказ от ответственности</h4>
         <pre class="disclaimer">
-Программное обеспечение и услуги предоставляются «как есть». Продавец не несёт ответственности за последствия использования ПО, блокировки аккаунтов или нарушение правил сторонних сервисов. Пользователь использует услуги на свой страх и риск.
+Программное обеспечение и услуги предоставляются «как есть». Продавец не несёт ответственности за последствия использования — вся ответственность ложится на покупателя.
         </pre>
-
         <h4 id="contacts">Контакты</h4>
         <p>Telegram: <a href="https://t.me/Neprikosnovenin" target="_blank">@Neprikosnovenin</a></p>
         <p>FunPay: <a href="https://funpay.com/users/15096779/" target="_blank">страница продавца</a></p>
       </aside>
     </div>
-
     <footer style="margin-top:22px">
       <div class="card">
         <strong>Примечание по безопасности</strong>
-        <p class="meta">Проверяйте правила FunPay и сторонних платформ. Некоторые платформы запрещают использование читов/макросов. Покупатель и продавец несут ответственность за соблюдение правил.</p>
+        <p class="meta">Проверяйте правила FunPay и сторонних платформ. Некоторые платформы запрещают использование читов или скриптов, убедитесь что ваша деятельность не нарушает соглашение сторонних сервисов!</p>
         <p>© ZaruShop — все права защищены</p>
       </div>
     </footer>
   </main>
-
   <!-- JS для падающего снега -->
   <script>
     const canvas = document.getElementById('snow');
@@ -178,6 +338,7 @@
 
     const flakes = [];
     function createFlakes(){
+      flakes.length = 0;
       for(let i=0;i<150;i++){
         flakes.push({x:Math.random()*width,y:Math.random()*height,r:Math.random()*3+1,d:Math.random()+1});
       }
@@ -198,11 +359,11 @@
 
     let angle=0;
     function moveFlakes(){
-      angle+=0.01;
+      angle+=0.008;
       for(let i=0;i<flakes.length;i++){
         const f=flakes[i];
         f.y+=Math.pow(f.d,2)+1;
-        f.x+=Math.sin(angle)*2;
+        f.x+=Math.sin(angle+i)*1.7;
         if(f.y>height){
           flakes[i]={x:Math.random()*width,y:0,r:f.r,d:f.d};
         }
@@ -219,10 +380,21 @@
       height=window.innerHeight;
       canvas.width=width;
       canvas.height=height;
+      createFlakes();
     });
 
     createFlakes();
     update();
+
+    // След от мышки (мягкий, исчезает через ~0.2 сек)
+    document.addEventListener('pointermove', function mouseTrail(e){
+      const dot = document.createElement('div');
+      dot.className = 'cursor-trail-dot';
+      dot.style.left = e.clientX + 'px';
+      dot.style.top = e.clientY + 'px';
+      document.body.appendChild(dot);
+      setTimeout(()=>dot.remove(), 220); // исчезает мягко (анимация есть в css)
+    });
   </script>
 </body>
 </html>
