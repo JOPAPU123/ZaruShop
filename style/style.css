@@ -909,4 +909,110 @@ body {
     .footer-social-link {
         justify-content: center;
     }
+    /* --- Улучшенные иконки Telegram, Rust и Сайтов --- */
+
+/* Telegram Icon */
+.telegram-icon {
+    width: 48px;
+    height: 48px;
+    background: radial-gradient(circle at 30% 30%, #2AABEE, #229ED9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(34, 158, 217, 0.3);
 }
+
+.telegram-icon svg {
+    width: 24px;
+    height: 24px;
+    color: #ffffff;
+    transition: transform 0.3s ease;
+}
+
+.telegram-icon:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(34, 158, 217, 0.5);
+}
+
+.telegram-icon:hover svg {
+    transform: translateY(-2px);
+}
+
+/* Rust Macros (Gamepad Icon) */
+.icon-rust {
+    color: #f7a840;
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.icon-rust::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 30%, rgba(247, 168, 64, 0.2), transparent 60%);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.icon-rust svg {
+    width: 50px;
+    height: 50px;
+    filter: drop-shadow(0 0 4px rgba(247, 168, 64, 0.4));
+}
+
+.offer-card:hover .icon-rust {
+    transform: scale(1.1);
+    color: #ffb84d;
+}
+
+.offer-card:hover .icon-rust::before {
+    opacity: 1;
+}
+
+/* Website Creation Icon */
+.icon-sites {
+    color: #00B2FF;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.icon-sites::after {
+    content: "";
+    position: absolute;
+    inset: -5px;
+    background: radial-gradient(circle at 30% 30%, rgba(0,178,255,0.15), transparent 70%);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.icon-sites svg {
+    width: 48px;
+    height: 48px;
+    filter: drop-shadow(0 0 4px rgba(0, 178, 255, 0.3));
+}
+
+.offer-card:hover .icon-sites {
+    transform: scale(1.1);
+    color: #33c6ff;
+}
+
+.offer-card:hover .icon-sites::after {
+    opacity: 1;
+}
+
+/* Universal smooth hover for icons */
+.offer-icon svg,
+.step-icon svg {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.offer-card:hover .offer-icon svg {
+    transform: translateY(-3px);
+}
+
+}
+
